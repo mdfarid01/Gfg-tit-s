@@ -37,3 +37,35 @@ window.addEventListener('keydown', (e) => {
         secretAction();
     }
 });
+
+// Mobile Menu Toggle
+const menuBtn = document.getElementById('menu-btn');
+const mobileMenu = document.getElementById('mobile-menu');
+
+if (menuBtn) {
+    menuBtn.addEventListener('click', () => {
+        mobileMenu.classList.toggle('hidden');
+    });
+}
+
+
+// Live search functionality for resources page
+const resourceSearch = document.getElementById('resource-search');
+const resourceGrid = document.getElementById('resource-grid');
+
+if (resourceSearch && resourceGrid) {
+    const resourceCards = resourceGrid.getElementsByClassName('resource-card');
+
+    resourceSearch.addEventListener('input', (e) => {
+        const searchTerm = e.target.value.toLowerCase();
+
+        for (let card of resourceCards) {
+            const cardText = card.innerText.toLowerCase();
+            if (cardText.includes(searchTerm)) {
+                card.style.display = 'flex'; // Use 'flex' as the cards are flex containers
+            } else {
+                card.style.display = 'none';
+            }
+        }
+    });
+}
