@@ -16,3 +16,24 @@ window.addEventListener('click', (event) => {
         peopleDropdown.classList.add('hidden');
     }
 });
+
+
+
+// Konami Code Easter Egg Logic
+const konamiCode = [
+    'ArrowUp', 'ArrowUp', 'ArrowDown', 'ArrowDown',
+    'ArrowLeft', 'ArrowRight', 'ArrowLeft', 'ArrowRight',
+    'b', 'a'
+];
+let keySequence = [];
+const secretAction = () => {
+    document.body.classList.toggle('matrix-theme');
+};
+window.addEventListener('keydown', (e) => {
+    keySequence.push(e.key);
+    // Keep the array at the same length as the konami code
+    keySequence.splice(-konamiCode.length - 1, keySequence.length - konamiCode.length);
+    if (keySequence.join('') === konamiCode.join('')) {
+        secretAction();
+    }
+});

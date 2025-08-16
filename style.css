@@ -1,0 +1,43 @@
+/* --- General Styles --- */
+body {
+    font-family: 'Inter', sans-serif;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+}
+
+/* --- Homepage Fade-in Animation --- */
+@keyframes fade-in {
+    from { opacity: 0; transform: translateY(10px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.animate-fade-in {
+    animation: fade-in 0.5s ease-out forwards;
+}
+
+/* --- Konami Code "Matrix" Theme --- */
+.matrix-theme {
+    background-color: #000 !important;
+    color: #0d0 !important;
+    font-family: 'Courier New', Courier, monospace !important;
+}
+
+.matrix-theme h1, .matrix-theme h2, .matrix-theme h3 {
+    text-shadow: 0 0 5px #0d0;
+}
+
+.matrix-theme a, .matrix-theme button {
+    color: #0f0 !important;
+    border-color: #0f0 !important;
+}
+
+.matrix-theme .bg-white, .matrix-theme .bg-gray-50 {
+    background-color: #111 !important;
+    border: 1px solid #0a04;
+}
+
+.matrix-theme .text-gray-800, .matrix-theme .text-gray-600 {
+    color: #0d0 !important;
+}
