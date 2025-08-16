@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Events | GFG TIT&S</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        body { font-family: 'Inter', sans-serif; background-color: #FFFFFF; }
+        h1, h2, h3, h4, h5, h6 { font-family: 'Montserrat', sans-serif; }
+    </style>
+</head>
+<body class="bg-white text-gray-800">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="./index.html" class="text-2xl font-bold text-gray-800">
+                GFG <span class="text-[#2f8d46]">TIT&S</span>
+            </a>
+            <div class="hidden md:flex space-x-6 items-center">
+                <a href="./index.html" class="text-gray-600 hover:text-[#2f8d46] font-semibold">Home</a>
+                <a href="./about.html" class="text-gray-600 hover:text-[#2f8d46] font-semibold">About</a>
+                <a href="./events.html" class="text-[#2f8d46] font-bold">Events</a>
+                <a href="./team.html" class="text-gray-600 hover:text-[#2f8d46] font-semibold">Team</a>
+                <a href="./resources.html" class="text-gray-600 hover:text-[#2f8d46] font-semibold">Resources</a>
+            </div>
+            <a href="https://chat.whatsapp.com/HSOZDMimvhjKvP53LHSrnj" target="_blank" class="bg-[#2f8d46] text-white font-bold py-2 px-5 rounded-lg hover:bg-green-700 transition-colors">
+                Join Us
+            </a>
+        </nav>
+    </header>
+
+    <main>
+         <section class="bg-[#121212] py-16 text-white">
+            <div class="container mx-auto px-6 text-center">
+                <h1 class="text-5xl font-extrabold">Our Events</h1>
+                <p class="mt-2 text-lg text-gray-300">Join us for workshops, contests, and talks.</p>
+            </div>
+        </section>
+
+        <section class="py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-gray-800 mb-10">Upcoming Events</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden border-2 border-[#2f8d46]">
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 mb-2">Nov 10, 2025</p>
+                            <h3 class="text-xl font-bold mb-3">API 101 with Postman</h3>
+                            <p class="text-gray-600 mb-4">Learn the basics of APIs and how to test them using Postman. A crucial skill for any developer.</p>
+                            <a href="#" class="bg-[#2f8d46] text-white font-bold py-2 px-4 rounded-md hover:bg-green-700 transition-colors">Register Now</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="bg-gray-50 py-20">
+            <div class="container mx-auto px-6">
+                <h2 class="text-4xl font-bold text-gray-800 mb-10">Past Events</h2>
+                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1542744095-291d1f67b221?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600" alt="Past event" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 mb-2">Aug 1, 2025</p>
+                            <h3 class="text-xl font-bold mb-3">Web Development Bootcamp</h3>
+                            <a href="#" class="font-semibold text-gray-500 hover:text-[#2f8d46]">View Gallery</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600" alt="Past event" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 mb-2">Jul 15, 2025</p>
+                            <h3 class="text-xl font-bold mb-3">CodeSprint 3.0</h3>
+                            <a href="#" class="font-semibold text-gray-500 hover:text-[#2f8d46]">View Winners</a>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-md overflow-hidden">
+                        <img src="https://images.unsplash.com/photo-1587825140708-df876c12b4bf?ixlib=rb-4.0.3&q=85&fm=jpg&crop=entropy&cs=srgb&w=1600" alt="Past event" class="w-full h-48 object-cover">
+                        <div class="p-6">
+                            <p class="text-sm text-gray-500 mb-2">Jun 20, 2025</p>
+                            <h3 class="text-xl font-bold mb-3">Introduction to Open Source</h3>
+                            <a href="#" class="font-semibold text-gray-500 hover:text-[#2f8d46]">Get Slides</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-[#121212] text-white">
+        </footer>
+</body>
+</html>
