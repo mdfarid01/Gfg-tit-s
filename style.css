@@ -41,3 +41,10 @@ h1, h2, h3, h4, h5, h6 {
 .matrix-theme .text-gray-800, .matrix-theme .text-gray-600 {
     color: #0d0 !important;
 }
+
+
+/* Add this to style.css */
+.break-words {
+  word-wrap: break-word;
+  overflow-wrap: break-word;
+}
