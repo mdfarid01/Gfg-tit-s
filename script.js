@@ -204,3 +204,20 @@ if (modal) {
         }
     });
 }
+
+
+// --- Problem of the Week Hint Button ---
+const hintBtn = document.getElementById('hint-btn');
+const hintText = document.getElementById('hint-text');
+
+if (hintBtn && hintText) {
+    hintBtn.addEventListener('click', () => {
+        hintText.classList.toggle('hidden');
+        if (!hintText.classList.contains('hidden')) {
+            hintBtn.textContent = 'Hide Hint';
+        } else {
+            hintBtn.textContent = 'Show Hint';
+        }
+    });
+}
+

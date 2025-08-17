@@ -84,3 +84,8 @@ h1, h2, h3, h4, h5, h6 {
 .animate-fade-in-up {
     animation: fade-in-up 0.3s ease-out forwards;
 }
+
+/* --- Hint transition --- */
+#hint-text {
+    transition: all 0.3s ease-in-out;
+}
