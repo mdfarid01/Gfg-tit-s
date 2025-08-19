@@ -221,3 +221,37 @@ if (hintBtn && hintText) {
     });
 }
 
+// --- Event Registration Modal Logic ---
+const eventModal = document.getElementById('event-modal');
+const eventModalCloseBtn = document.getElementById('event-modal-close-btn');
+const openEventModalBtns = document.querySelectorAll('.open-event-modal-btn');
+
+if (eventModal) {
+    openEventModalBtns.forEach(btn => {
+        btn.addEventListener('click', () => {
+            const eventTitle = btn.dataset.eventTitle;
+            
+            // Set the modal title and the hidden input value
+            eventModal.querySelector('#event-modal-title').textContent = `Register for ${eventTitle}`;
+            eventModal.querySelector('#hidden-event-name').value = eventTitle;
+
+            eventModal.classList.remove('hidden');
+            eventModal.classList.add('flex');
+        });
+    });
+
+    // Function to close the modal
+    const closeEventModal = () => {
+        eventModal.classList.add('hidden');
+        eventModal.classList.remove('flex');
+    };
+
+    eventModalCloseBtn.addEventListener('click', closeEventModal);
+
+    // Close modal if clicking outside the content
+    eventModal.addEventListener('click', (e) => {
+        if (e.target === eventModal) {
+            closeEventModal();
+        }
+    });
+}

@@ -63,32 +63,38 @@
 </header>
 
     <main>
-         <section class="bg-[#121212] py-16 text-white">
-            <div class="container mx-auto px-6 text-center">
-                <h1 class="text-5xl font-extrabold">Our Events</h1>
-                <p class="mt-2 text-lg text-gray-300">Join us for workshops, contests, and talks.</p>
-            </div>
-        </section>
-
-        <section class="py-20">
+    <section class="py-20">
     <div class="container mx-auto px-6">
         <h2 class="text-4xl font-bold text-gray-800 mb-10">Upcoming Events</h2>
+
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
-            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200">
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-[#2f8d46]">
                 <div class="p-6">
-                    <p class="text-sm font-semibold text-green-600 mb-2">WORKSHOP</p>
+                    <p class="text-sm text-gray-500 mb-2">Nov 10, 2025</p>
                     <h3 class="text-xl font-bold mb-3">API 101 with Postman</h3>
                     <p class="text-gray-600 mb-4">Learn the basics of APIs and how to test them using Postman. A crucial skill for any developer.</p>
-                </div>
-                <div class="p-4 bg-gray-50 border-t border-gray-200 flex items-center space-x-2">
-                    <a href="#" class="flex-1 bg-[#2f8d46] text-white font-bold py-2 px-4 rounded-md hover:bg-green-700 text-center">Register Now</a>
-                    
-                    <a href="https://www.google.com/calendar/render?action=TEMPLATE&text=API+101+with+Postman&dates=20251110T090000/20251110T110000&details=Learn+the+basics+of+APIs+and+how+to+test+them+using+Postman.+A+crucial+skill+for+any+developer.&location=Online" target="_blank" class="p-2 bg-gray-200 text-gray-700 rounded-md hover:bg-gray-300" title="Add to Calendar">
-                        <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"></path></svg>
-                    </a>
+                    <button 
+                        class="open-event-modal-btn bg-[#2f8d46] text-white font-bold py-2 px-4 rounded-md hover:bg-green-700 transition-colors w-full"
+                        data-event-title="API 101 with Postman">
+                        Register Now
+                    </button>
                 </div>
             </div>
-            
+
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden border-2 border-[#2f8d46]">
+                <div class="p-6">
+                    <p class="text-sm text-gray-500 mb-2">Dec 05, 2025</p>
+                    <h3 class="text-xl font-bold mb-3">Intro to Competitive Programming</h3>
+                    <p class="text-gray-600 mb-4">Get started with competitive programming and learn the key strategies to excel in coding contests.</p>
+                    <button 
+                        class="open-event-modal-btn bg-[#2f8d46] text-white font-bold py-2 px-4 rounded-md hover:bg-green-700 transition-colors w-full"
+                        data-event-title="Intro to Competitive Programming">
+                        Register Now
+                    </button>
+                </div>
+            </div>
+
             </div>
     </div>
 </section>
@@ -155,5 +161,47 @@
         </div>
     </div>
 </footer>
+
+<div id="event-modal" class="fixed inset-0 bg-black bg-opacity-50 hidden items-center justify-center z-50 p-4">
+    <div class="bg-white rounded-lg shadow-xl w-full max-w-lg relative animate-fade-in-up">
+        <button id="event-modal-close-btn" class="absolute top-3 right-3 text-gray-400 hover:text-gray-800">
+            <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path></svg>
+        </button>
+
+        <div class="p-8">
+            <h3 id="event-modal-title" class="text-2xl font-bold text-gray-800 text-center mb-6">Register for Event</h3>
+            <form action="https://formspree.io/f/xovlovyk" method="POST">
+                <input type="hidden" name="event-name" id="hidden-event-name" value="">
+                <div class="space-y-4">
+                    <div>
+                        <label for="name" class="block text-sm font-semibold text-gray-700">Full Name</label>
+                        <input type="text" name="name" id="name" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
+                    </div>
+                    <div>
+                        <label for="email" class="block text-sm font-semibold text-gray-700">Email Address</label>
+                        <input type="email" name="email" id="email" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
+                    </div>
+                    <div>
+                        <label for="enrollment" class="block text-sm font-semibold text-gray-700">Enrollment No.</label>
+                        <input type="text" name="enrollment" id="enrollment" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
+                    </div>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <div>
+                            <label for="branch" class="block text-sm font-semibold text-gray-700">Branch</label>
+                            <input type="text" name="branch" id="branch" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
+                        </div>
+                        <div>
+                            <label for="year" class="block text-sm font-semibold text-gray-700">Year</label>
+                            <input type="text" name="year" id="year" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
+                        </div>
+                    </div>
+                </div>
+                <div class="pt-6">
+                    <button type="submit" class="w-full bg-[#2f8d46] text-white font-bold py-3 px-5 rounded-lg hover:bg-green-700 text-lg transition-colors">Confirm Registration</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
 </body>
 </html>

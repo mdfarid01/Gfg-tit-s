@@ -56,51 +56,85 @@
     </div>
 </header>
 
-    <main class="py-16">
-        <div class="container mx-auto px-6 max-w-3xl">
-            <div class="text-center">
-                <h1 class="text-4xl font-extrabold text-gray-800">Submit Your Project</h1>
-                <p class="mt-2 text-lg text-gray-600">Showcase your work to the community!</p>
+    <<main class="py-16">
+    <div class="container mx-auto px-6 max-w-3xl">
+        <div class="text-center">
+            <h1 class="text-4xl font-extrabold text-gray-800">Submit Your Project</h1>
+            <p class="mt-2 text-lg text-gray-600">Showcase your work to the community!</p>
+        </div>
+
+        <div class="mt-10">
+            <h2 class="text-2xl font-bold text-center text-gray-800 mb-4">Live Preview</h2>
+            <p class="text-center text-gray-600 mb-6">After approval, your project will look like this:</p>
+            
+            <div class="bg-white rounded-xl shadow-lg overflow-hidden border border-gray-200 flex flex-col max-w-sm mx-auto">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?q=80&w=1740&auto=format&fit=crop" alt="Project Screenshot" class="w-full h-48 object-cover">
+                <div class="p-6 flex-grow flex flex-col">
+                    <h3 class="text-xl font-bold text-gray-800 mb-2">Campus Event Planner</h3>
+                    <p class="text-gray-600 mb-4 flex-grow">A web app to manage and RSVP to all college events, workshops, and fests.</p>
+                    <div class="mb-4">
+                        <span class="inline-block bg-blue-100 text-blue-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">React</span>
+                        <span class="inline-block bg-green-100 text-green-800 text-xs font-semibold mr-2 px-2.5 py-0.5 rounded-full">Node.js</span>
+                    </div>
+                    <p class="text-sm text-gray-500 mb-4">By: Your Name(s)</p>
+                    <div class="flex space-x-3 mt-auto">
+                        <a href="#" class="flex-1 bg-[#2f8d46] text-white font-bold py-2 px-4 rounded-lg text-center">Live Demo</a>
+                        <a href="#" class="flex-1 bg-gray-800 text-white font-bold py-2 px-4 rounded-lg text-center">View Code</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <form action="https://formspree.io/f/xyzpapod" method="POST" class="mt-12 bg-white p-8 rounded-xl shadow-lg border border-gray-200 space-y-6">
+            <h2 class="text-2xl font-bold text-center text-gray-800">Your Project Details</h2>
+            
+            <div>
+                <label for="project-title" class="block text-sm font-semibold text-gray-700">Project Title</label>
+                <input type="text" name="project-title" id="project-title" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
             </div>
 
-            <form action="https://formspree.io/f/xyzpapod" method="POST" class="mt-10 bg-white p-8 rounded-xl shadow-lg border border-gray-200 space-y-6">
-                
-                <div>
-                    <label for="project-title" class="block text-sm font-semibold text-gray-700">Project Title</label>
-                    <input type="text" name="project-title" id="project-title" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
-                </div>
+            <div>
+                <label for="creators" class="block text-sm font-semibold text-gray-700">Creator(s) Name(s)</label>
+                <input type="text" name="creators" id="creators" required placeholder="e.g., Priya Patel & Rohan Verma" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
+            </div>
 
-                <div>
-                    <label for="creators" class="block text-sm font-semibold text-gray-700">Creator(s) Name(s)</label>
-                    <input type="text" name="creators" id="creators" required placeholder="e.g., Priya Patel & Rohan Verma" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
-                </div>
+            <div>
+                <label for="description" class="block text-sm font-semibold text-gray-700">Short Description</label>
+                <textarea name="description" id="description" rows="3" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]"></textarea>
+            </div>
 
-                <div>
-                    <label for="description" class="block text-sm font-semibold text-gray-700">Short Description</label>
-                    <textarea name="description" id="description" rows="3" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]"></textarea>
-                </div>
+            <div>
+                <label for="tech-stack" class="block text-sm font-semibold text-gray-700">Tech Stack (comma separated)</label>
+                <input type="text" name="tech-stack" id="tech-stack" placeholder="e.g., React, Node.js, MongoDB" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
+            </div>
 
-                <div>
-                    <label for="tech-stack" class="block text-sm font-semibold text-gray-700">Tech Stack</label>
-                    <input type="text" name="tech-stack" id="tech-stack" placeholder="e.g., React, Node.js, MongoDB" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
-                </div>
+            <div>
+                <label for="image-url" class="block text-sm font-semibold text-gray-700">Project Image URL</label>
+                <input type="url" name="image-url" id="image-url" placeholder="A direct link to a screenshot of your project" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
+            </div>
 
-                <div>
-                    <label for="live-demo" class="block text-sm font-semibold text-gray-700">Live Demo URL</label>
-                    <input type="url" name="live-demo" id="live-demo" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
-                </div>
+            <div>
+                <label for="live-demo" class="block text-sm font-semibold text-gray-700">Live Demo URL</label>
+                <input type="url" name="live-demo" id="live-demo" class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
+            </div>
 
-                <div>
-                    <label for="source-code" class="block text-sm font-semibold text-gray-700">Source Code URL (GitHub)</label>
-                    <input type="url" name="source-code" id="source-code" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
-                </div>
+            <div>
+                <label for="source-code" class="block text-sm font-semibold text-gray-700">Source Code URL (GitHub)</label>
+                <input type="url" name="source-code" id="source-code" required class="mt-1 block w-full px-4 py-2 border border-gray-300 rounded-md shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
+            </div>
 
-                <div class="pt-4">
-                    <button type="submit" class="w-full bg-[#2f8d46] text-white font-bold py-3 px-5 rounded-lg hover:bg-green-700 text-lg transition-colors">Submit Project</button>
-                </div>
-            </form>
+            <div class="pt-4">
+                <button type="submit" class="w-full bg-[#2f8d46] text-white font-bold py-3 px-5 rounded-lg hover:bg-green-700 text-lg transition-colors">Submit Project</button>
+            </div>
+        </form>
+        
+        <div class="mt-8 text-center">
+            <a href="./projects.html" class="text-sm text-gray-600 hover:text-[#2f8d46] hover:underline">
+                &larr; Back to Project Showcase
+            </a>
         </div>
-    </main>
+    </div>
+</main>
 
     <footer class="bg-[#121212] text-white">
         </footer>
