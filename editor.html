@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Code Editor | GeeksforGeeks Campus Body - TIT&S</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&family=Montserrat:wght@700;800&display=swap" rel="stylesheet">
+    <style>
+        #editor-container { height: 60vh; }
+        #output-container { height: 30vh; }
+    </style>
+</head>
+<body class="bg-gray-100">
+
+    <header class="bg-white shadow-md sticky top-0 z-50">
+        <nav class="container mx-auto px-6 py-4 flex justify-between items-center">
+            <a href="./index.html" class="text-2xl font-bold text-gray-800">
+                GFG <span class="text-[#2f8d46]">TIT&S</span>
+            </a>
+            <div class="hidden md:flex space-x-8 items-center">
+                <a href="./index.html" class="text-gray-600 hover:text-[#2f8d46] font-semibold">Home</a>
+                <a href="./about.html" class="text-gray-600 hover:text-[#2f8d46] font-semibold">About</a>
+                <a href="./events.html" class="text-gray-600 hover:text-[#2f8d46] font-semibold">Events</a>
+                <a href="./projects.html" class="text-gray-600 hover:text-[#2f8d46] font-semibold">Projects</a>
+                <div class="relative">
+                    <button id="people-button" class="text-gray-600 hover:text-[#2f8d46] font-semibold flex items-center">
+                        <span>People</span>
+                        <svg class="w-4 h-4 ml-1" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"></path></svg>
+                    </button>
+                    <div id="people-dropdown" class="absolute hidden bg-white shadow-lg rounded-md mt-2 w-48 z-10">
+                        <a href="./team.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Our Team</a>
+                        <a href="./contributors.html" class="block px-4 py-2 text-gray-600 hover:bg-gray-100">Contributors</a>
+                    </div>
+                </div>
+                <a href="./resources.html" class="text-gray-600 hover:text-[#2f8d46] font-semibold">Resources</a>
+                <a href="./editor.html" class="text-[#2f8d46] font-bold">Editor</a>
+            </div>
+            <a href="https://chat.whatsapp.com/HSOZDMimvhjKvP53LHSrnj" target="_blank" class="hidden md:block bg-[#2f8d46] text-white font-bold py-2 px-5 rounded-lg hover:bg-green-700">
+                Join Us
+            </a>
+            <div class="md:hidden">
+                <button id="menu-btn" class="block text-gray-800 hover:text-[#2f8d46]">
+                    <svg class="w-8 h-8" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path></svg>
+                </button>
+            </div>
+        </nav>
+        <div id="mobile-menu" class="hidden md:hidden">
+            <a href="./index.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Home</a>
+            <a href="./about.html" class="block py-2 px-4 text-sm hover:bg-gray-100">About</a>
+            <a href="./events.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Events</a>
+            <a href="./projects.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Projects</a>
+            <a href="./team.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Our Team</a>
+            <a href="./contributors.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Contributors</a>
+            <a href="./resources.html" class="block py-2 px-4 text-sm hover:bg-gray-100">Resources</a>
+            <a href="./editor.html" class="block py-2 px-4 text-sm hover:bg-gray-100 bg-gray-100 font-semibold">Editor</a>
+            <a href="https://chat.whatsapp.com/HSOZDMimvhjKvP53LHSrnj" target="_blank" class="block py-2 px-4 text-sm hover:bg-gray-100">Join Us</a>
+        </div>
+    </header>
+
+   <main class="py-12 bg-gradient-to-br from-gray-100 to-gray-200">
+     <div class="container mx-auto px-6">
+         <div class="text-center mb-8">
+             <h1 class="text-4xl font-extrabold text-gray-800">Interactive Code Editor</h1>
+             <p class="mt-2 text-lg text-gray-600">Write, run, and test your code in real-time.</p>
+         </div>
+ 
+         <div class="bg-white rounded-lg shadow-xl overflow-hidden border border-gray-200">
+             <div class="px-6 py-4 bg-gray-50 border-b border-gray-200 flex items-center justify-between">
+                 <div>
+                     <label for="language-select" class="text-sm font-semibold text-gray-700 mr-2">Language:</label>
+                     <select id="language-select" class="rounded-md border-gray-300 shadow-sm focus:ring-[#2f8d46] focus:border-[#2f8d46]">
+                         <option value="93" data-lang="javascript">JavaScript (Node.js)</option>
+                         <option value="71" data-lang="python">Python</option>
+                         <option value="54" data-lang="cpp">C++</option>
+                         <option value="62" data-lang="java">Java</option>
+                     </select>
+                 </div>
+                 <button id="run-btn" class="bg-[#2f8d46] text-white font-bold py-2 px-6 rounded-lg hover:bg-green-700 transition-colors">
+                     <svg class="w-5 h-5 inline-block mr-2" fill="currentColor" viewBox="0 0 20 20"><path fill-rule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM9.555 7.168A1 1 0 008 8v4a1 1 0 001.555.832l3-2a1 1 0 000-1.664l-3-2z" clip-rule="evenodd"></path></svg>
+                     Run Code
+                 </button>
+             </div>
+             <div id="editor-container" class="border-b border-gray-200"></div>
+             <div class="bg-gray-900 text-white rounded-b-lg">
+                 <div class="px-6 py-3 border-b border-gray-800">
+                     <h3 class="text-lg font-semibold">Output:</h3>
+                 </div>
+                 <pre id="output-container" class="p-6 font-mono text-sm overflow-y-auto whitespace-pre"></pre>
+             </div>
+         </div>
+     </div>
+ </main>
+    
+     <footer class="bg-[#121212] text-white">
+        <div class="container mx-auto px-6 py-10">
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 text-center md:text-left">
+                <div>
+                    <h3 class="text-xl font-bold">GeeksforGeeks Campus Body - TIT&S</h3>
+                    <p class="mt-2 text-gray-400">Technocrats Institute Of Technology & Science</p>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-2">Quick Links</h3>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="./about.html" class="hover:text-white">About Us</a></li>
+                        <li><a href="./events.html" class="hover:text-white">Events</a></li>
+                        <li><a href="https://chat.whatsapp.com/HSOZDMimvhjKvP53LHSrnj" target="_blank" class="hover:text-white">Join our Group</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h3 class="font-bold mb-2">Connect With Us</h3>
+                    <div class="flex justify-center md:justify-start space-x-4 mt-2">
+                        <a href="https://www.linkedin.com/company/geeksforgeeks-campus-body-tit-s" target="_blank" class="text-gray-400 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M16.338 16.338H13.67V12.16c0-.995-.017-2.277-1.387-2.277-1.39 0-1.601 1.086-1.601 2.206v4.248H8.014v-8.59h2.559v1.174h.037c.356-.675 1.227-1.387 2.526-1.387 2.703 0 3.203 1.778 3.203 4.092v4.711zM5.337 7.433c-.945 0-1.71-.765-1.71-1.71s.765-1.71 1.71-1.71 1.71.765 1.71 1.71-.765 1.71-1.71 1.71zM6.61 16.338H4.064v-8.59h2.546v8.59zM17.638 2H6.362A4.362 4.362 0 002 6.362v11.276A4.362 4.362 0 006.362 22h11.276A4.362 4.362 0 0022 17.638V6.362A4.362 4.362 0 0017.638 2z" clip-rule="evenodd"></path></svg></a>
+                        <a href="https://x.com/Gfg_TITandS" target="_blank" class="text-gray-400 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"></path></svg></a>
+                        <a href="https://www.instagram.com/geeksforgeeks_titandscience/" target="_blank" class="text-gray-400 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path fill-rule="evenodd" d="M12.315 2c2.43 0 2.784.013 3.808.06 1.064.049 1.791.218 2.427.465a4.902 4.902 0 011.772 1.153 4.902 4.902 0 011.153 1.772c.247.636.416 1.363.465 2.427.048 1.024.06 1.378.06 3.808s-.012 2.784-.06 3.808c-.049 1.064-.218 1.791-.465 2.427a4.902 4.902 0 01-1.153 1.772 4.902 4.902 0 01-1.772 1.153c-.636.247-1.363.416-2.427.465-1.024.048-1.378.06-3.808.06s-2.784-.013-3.808-.06c-1.064-.049-1.791-.218-2.427-.465a4.902 4.902 0 01-1.772-1.153 4.902 4.902 0 01-1.153-1.772c-.247-.636-.416 1.363-.465-2.427-.048-1.024-.06-1.378-.06-3.808s.012-2.784.06-3.808c.049-1.064.218-1.791.465-2.427a4.902 4.902 0 011.153-1.772A4.902 4.902 0 016.08 2.525c.636-.247 1.363-.416 2.427-.465C9.53 2.013 9.884 2 12.315 2zm-1.002 6.363a4.932 4.932 0 11-9.864 0 4.932 4.932 0 019.864 0zm-4.932 6.27a1.338 1.338 0 100-2.676 1.338 1.338 0 000 2.676zm4.997-6.27a.999.999 0 100-1.998.999.999 0 000 1.998z" clip-rule="evenodd"></path></svg></a>
+                        <a href="mailto:geeksforgeekstitands@gmail.com" class="text-gray-400 hover:text-white"><svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M1.5 8.67v8.58a3 3 0 003 3h15a3 3 0 003-3V8.67l-8.928 5.493a3 3 0 01-3.144 0L1.5 8.67z"></path><path d="M22.5 6.908V6.75a3 3 0 00-3-3h-15a3 3 0 00-3 3v.158l9.714 5.978a1.5 1.5 0 001.572 0L22.5 6.908z"></path></svg></a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 border-t border-gray-700 pt-6 text-center text-gray-500">
+                <p>&copy; 2025 GeeksforGeeks Campus Body - TIT&S. All Rights Reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs/loader.js"></script>
+
+    <script src="script.js" defer></script>
+
+    <script>
+        let editor; // Make editor globally accessible in this script
+
+        // --- Initialize Monaco Editor ---
+        require.config({ paths: { 'vs': 'https://cdn.jsdelivr.net/npm/monaco-editor@0.41.0/min/vs' }});
+        require(['vs/editor/editor.main'], function() {
+            editor = monaco.editor.create(document.getElementById('editor-container'), {
+                value: 'console.log("Hello, world!");',
+                language: 'javascript',
+                theme: 'vs-dark',
+                automaticLayout: true,
+                minimap: { enabled: true }
+            });
+        });
+
+        // --- Get DOM Elements ---
+        const languageSelect = document.getElementById('language-select');
+        const runBtn = document.getElementById('run-btn');
+        const outputContainer = document.getElementById('output-container');
+
+        // --- Change Editor Language on Select ---
+        languageSelect.addEventListener('change', () => {
+            const selectedOption = languageSelect.options[languageSelect.selectedIndex];
+            const lang = selectedOption.dataset.lang;
+            monaco.editor.setModelLanguage(editor.getModel(), lang);
+        });
+
+        // --- Run Code Functionality ---
+        // New runBtn listener for editor.html
+runBtn.addEventListener('click', async () => {
+    const code = editor.getValue();
+    const languageId = languageSelect.value;
+    outputContainer.textContent = "Running your code...";
+
+    try {
+        // Call your OWN proxy function
+        const response = await fetch('/.netlify/functions/run-code', {
+            method: 'POST',
+            body: JSON.stringify({
+                language_id: languageId,
+                source_code: btoa(code) // Base64 encode the code
+            })
+        });
+        const submission = await response.json();
+        const { token } = submission;
+
+        if (!token) {
+            outputContainer.textContent = `Error: ${submission.status?.description || 'Could not submit code.'}`;
+            return;
+        }
+
+        // The polling logic remains the same as before
+        const checkStatus = async () => {
+            // Note: Polling still needs a direct call, but this part of the API doesn't require a key
+            const resultResponse = await fetch(`https://judge0-ce.p.rapidapi.com/submissions/${token}?base64_encoded=true&fields=*`);
+            const result = await resultResponse.json();
+            
+            if (result.status.id <= 2) {
+                setTimeout(checkStatus, 2000);
+                return;
+            }
+            
+            const output = result.stdout ? atob(result.stdout) : "";
+            const error = result.stderr ? atob(result.stderr) : "";
+            const compileError = result.compile_output ? atob(result.compile_output) : "";
+
+            outputContainer.textContent = output || error || compileError || result.status.description;
+        };
+        setTimeout(checkStatus, 2000);
+
+    } catch (err) {
+        outputContainer.textContent = `An error occurred: ${err.message}`;
+    }
+});
+    </script>
+</body>
+</html>
